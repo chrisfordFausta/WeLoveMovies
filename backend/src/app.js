@@ -8,9 +8,18 @@ const theatersRouter = require("./theaters/theaters.router");
 const reviewsRouter = require("./reviews/reviews.router");
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound")
+const cors = require("cors")
 
 app.use(express.json());
-app.use(require("cors")());
+app.use(cors());
+
+const router = express.Router()
+router.get('/', cors(), (req, res) => {
+    res.json({
+        message: "Welcome you can access the data in the back end"
+    })
+})
+
 app.use("/movies", moviesRouter);
 app.use("/theaters", theatersRouter);
 app.use("/reviews", reviewsRouter);
