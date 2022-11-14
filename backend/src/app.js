@@ -20,6 +20,7 @@ router.get('/', cors(), (req, res) => {
     })
 })
 
+app.use("/", router);
 app.use("/movies", moviesRouter);
 app.use("/theaters", theatersRouter);
 app.use("/reviews", reviewsRouter);
